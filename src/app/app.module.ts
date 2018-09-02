@@ -11,6 +11,8 @@ import { RecipeItemComponent } from './components/recipes-bucket/recipe-list/rec
 import { ShoppingBucketComponent } from './components/shopping-bucket/shopping-bucket.component';
 import { ShoppingEditComponent } from './components/shopping-Bucket/shopping-edit/shopping-edit.component';
 
+import { HighlightDirective } from './directives/highlight.directive'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,9 @@ import { ShoppingEditComponent } from './components/shopping-Bucket/shopping-edi
     RecipeDetailComponent,
     RecipeItemComponent,
     ShoppingBucketComponent,
-    ShoppingEditComponent
+    ShoppingEditComponent,
+
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
