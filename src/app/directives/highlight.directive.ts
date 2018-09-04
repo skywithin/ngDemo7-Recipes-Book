@@ -13,7 +13,7 @@ import {
 export class HighlightDirective implements OnInit {
 
     @Input() defaultColor: string = 'transparent';
-    @Input() highlightColor: string = 'blue';
+    @Input('appHighlight') highlightColor: string = 'blue';
 
     @HostBinding('style.backgroundColor') backgroundColor: string;
     @HostBinding('style.color') textColor: string = 'black';
