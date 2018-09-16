@@ -1,24 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { Ingredient } from '../../models/ingredient.model';
 import { LoggingService } from '../../services/logging.service';
+import { ShoppingListService } from '../../services/shopping-list.service';
 
 @Component({
   selector: 'app-shopping-bucket',
   templateUrl: './shopping-bucket.component.html'
 })
 export class ShoppingBucketComponent implements OnInit {
-  ingredients: Ingredient[] = [
-    new Ingredient('Apples', 5),
-    new Ingredient('Tomatos', 10)
-  ];
+  
+  ingredients: Ingredient[];
 
-  constructor(private loggingService: LoggingService) { }
-
-  ngOnInit() {
+  constructor(private shoppingListService: ShoppingListService) { 
   }
+    
+  ngOnInit() {
+    this.ingredients = this.shoppingListService.getIngredients();
 
-  onIngredientAdded(ingredient: Ingredient) {
-    this.ingredients.push(ingredient);
-    this.loggingService.logToConsole('Ingredient added: "' + ingredient.name + '". Amount: ' + ingredient.amount);
+    this.shoppingListService.ingredientsChanged
+      .subscribe(
+        (ingredients: Ingredient[]) => {
+          this.ingredients = ingredients;
+        }
+      );
   }
 }
