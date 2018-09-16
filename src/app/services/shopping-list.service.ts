@@ -25,4 +25,13 @@ export class ShoppingListService {
     this.ingredientsChanged.emit(this.ingredients.slice());
     this.loggingService.logToConsole('Ingredient added: "' + ingredient.name + '". Amount: ' + ingredient.amount);
   }
+
+  addIngredients(ingredients: Ingredient[]) {
+    //for (let ingredient of ingredients) {
+    //  this.addIngredient(ingredient);
+    //}
+    this.ingredients.push(...ingredients); //Spread array into single elements
+    this.ingredientsChanged.emit(this.ingredients.slice());
+    this.loggingService.logToConsole(ingredients.length + ' ingredient(s) added');
+  }
 }
