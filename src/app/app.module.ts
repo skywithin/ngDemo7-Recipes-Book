@@ -11,7 +11,8 @@ import { RecipeItemComponent } from './components/recipes-bucket/recipe-list/rec
 import { ShoppingBucketComponent } from './components/shopping-bucket/shopping-bucket.component';
 import { ShoppingEditComponent } from './components/shopping-Bucket/shopping-edit/shopping-edit.component';
 
-import { HighlightDirective } from './directives/highlight.directive'
+import { HighlightDirective } from './directives/highlight.directive';
+import { UnlessDirective } from './directives/unless.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HighlightDirective } from './directives/highlight.directive'
     ShoppingBucketComponent,
     ShoppingEditComponent,
 
-    HighlightDirective
+    HighlightDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,
