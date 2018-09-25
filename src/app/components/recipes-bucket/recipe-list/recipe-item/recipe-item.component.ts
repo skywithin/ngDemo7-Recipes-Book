@@ -8,6 +8,7 @@ import { Recipe } from '../../../../models/recipe.model';
 export class RecipeItemComponent implements OnInit {
 
   @Input('recipeItem') recipe: Recipe;
+  @Input() recipeIndex: number;
 
   ngOnInit() {
   }
