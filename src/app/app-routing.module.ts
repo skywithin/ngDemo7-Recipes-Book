@@ -5,15 +5,19 @@ import { RecipesBucketComponent } from "./components/recipes-bucket/recipes-buck
 import { RecipeStartComponent } from "./components/recipes-bucket/recipe-start/recipe-start.component";
 import { ShoppingBucketComponent } from "./components/shopping-bucket/shopping-bucket.component";
 import { RecipeDetailComponent } from "./components/recipes-bucket/recipe-detail/recipe-detail.component";
+import { RecipeEditComponent } from "./components/recipes-bucket/recipe-edit/recipe-edit.component";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-    { path: 'recipes', 
-      component: RecipesBucketComponent, 
-      children: [
-            {path: '', component: RecipeStartComponent},
-            {path: ':id', component: RecipeDetailComponent}
-        ] 
+    {
+        path: 'recipes',
+        component: RecipesBucketComponent,
+        children: [
+            { path: '', component: RecipeStartComponent },
+            { path: 'new', component: RecipeEditComponent },
+            { path: ':id', component: RecipeDetailComponent },
+            { path: ':id/edit', component: RecipeEditComponent }
+        ]
     },
     { path: 'shopping-list', component: ShoppingBucketComponent },
 ];
@@ -23,5 +27,5 @@ const appRoutes: Routes = [
     exports: [RouterModule]
 })
 export class AppRoutingModule {
-    
+
 }

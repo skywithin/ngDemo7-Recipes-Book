@@ -17,6 +17,7 @@ import { ShoppingEditComponent } from './components/shopping-Bucket/shopping-edi
 import { HighlightDirective } from './directives/highlight.directive';
 import { UnlessDirective } from './directives/unless.directive';
 import { DropdownDirective } from './directives/dropdown.directive';
+import { RecipeEditComponent } from './components/recipes-bucket/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DropdownDirective } from './directives/dropdown.directive';
     HighlightDirective,
     UnlessDirective,
     DropdownDirective,
-    RecipeStartComponent
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,
