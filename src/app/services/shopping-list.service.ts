@@ -40,4 +40,9 @@ export class ShoppingListService {
     this.ingredientsChanged.next(this.ingredients.slice());
     this.loggingService.logToConsole(ingredients.length + ' ingredient(s) added');
   }
+
+  updateIngredient(index: number, ingredient: Ingredient) {
+    this.ingredients[index] = ingredient;
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
 }
