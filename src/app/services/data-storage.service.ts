@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
+import { map } from 'rxjs/operators';
 import { RecipeService } from "./recipe.service";
+import { Recipe } from "../models/recipe.model";
 
 @Injectable({
     providedIn: 'root'
@@ -22,9 +24,21 @@ export class DataStorageService {
 
     getRecipes() {
         this.http.get(this.repoBaseUrl + this.recipesStore)
+            .pipe(
+                map(
+                    (response: Response) => {
+                        const recipes = response.json();
+                        for (let recipe of recipes) {
+                            if (!recipe['ingredientd']) {
+                                recipe['ingredientd'] = []; // Make sure 'ingredients' property exists
+                            }
+                        }
+                        return recipes;
+                    }
+                )
+            )
             .subscribe(
-                (response: Response) => {
-                    const recipes = response.json();
+                (recipes: Recipe[]) => {
                     this.recipeService.setRecipes(recipes);
                 }
             );
