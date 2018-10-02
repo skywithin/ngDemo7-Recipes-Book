@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
-import { Http } from "@angular/http";
+import { Http, Response } from "@angular/http";
 import { RecipeService } from "./recipe.service";
-import { Recipe } from "../models/recipe.model";
 
 @Injectable({
     providedIn: 'root'
@@ -19,5 +18,15 @@ export class DataStorageService {
             this.repoBaseUrl + this.recipesStore,
             this.recipeService.getRecipes()
         );
+    }
+
+    getRecipes() {
+        this.http.get(this.repoBaseUrl + this.recipesStore)
+            .subscribe(
+                (response: Response) => {
+                    const recipes = response.json();
+                    this.recipeService.setRecipes(recipes);
+                }
+            );
     }
 }
