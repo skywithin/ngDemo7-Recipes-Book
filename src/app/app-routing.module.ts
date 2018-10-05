@@ -8,6 +8,7 @@ import { RecipeDetailComponent } from "./components/recipes-bucket/recipe-detail
 import { RecipeEditComponent } from "./components/recipes-bucket/recipe-edit/recipe-edit.component";
 import { SignupComponent } from "./components/auth/signup/signup.component";
 import { SigninComponent } from "./components/auth/signin/signin.component";
+import { AuthGuardService } from "./services/auth-guard.service";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/recipes', pathMatch: 'full' },
@@ -16,9 +17,9 @@ const appRoutes: Routes = [
         component: RecipesBucketComponent,
         children: [
             { path: '', component: RecipeStartComponent },
-            { path: 'new', component: RecipeEditComponent },
+            { path: 'new', component: RecipeEditComponent, canActivate: [AuthGuardService] },
             { path: ':id', component: RecipeDetailComponent },
-            { path: ':id/edit', component: RecipeEditComponent }
+            { path: ':id/edit', component: RecipeEditComponent, canActivate: [AuthGuardService] }
         ]
     },
     { path: 'shopping-list', component: ShoppingBucketComponent },
