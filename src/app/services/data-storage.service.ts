@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
 import { map } from 'rxjs/operators';
 import { RecipeService } from "./recipe.service";
+import { AuthService } from "./auth.service";
 import { Recipe } from "../models/recipe.model";
 
 @Injectable({
@@ -13,20 +14,26 @@ export class DataStorageService {
 
     constructor(
         private http: Http,
-        private recipeService: RecipeService) {}
+        private recipeService: RecipeService,
+        private authService: AuthService) {}
 
     storeRecipes() {   // Returns an observable
+        const token = this.authService.getToken();
+
         return this.http.put(
-            this.repoBaseUrl + this.recipesStore,
+            this.repoBaseUrl + this.recipesStore + '?auth=' + token,
             this.recipeService.getRecipes()
         );
     }
 
     getRecipes() {
-        this.http.get(this.repoBaseUrl + this.recipesStore)
+        const token = this.authService.getToken();
+
+        this.http.get(this.repoBaseUrl + this.recipesStore + '?auth=' + token)
             .pipe(
                 map(
                     (response: Response) => {
+                        console.log('fetched recipes');
                         const recipes = response.json();
                         for (let recipe of recipes) {
                             if (!recipe['ingredientd']) {
