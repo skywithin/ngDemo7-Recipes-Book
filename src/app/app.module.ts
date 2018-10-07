@@ -4,7 +4,8 @@ import { FormsModule, } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { RecipesModule } from './components/recipes-bucket/recipes.module';
+import { RecipesModule } from './modules/recipes.module';
+import { SharedModule } from './modules/shared.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponet } from './components/header/header.component';
@@ -20,9 +21,6 @@ import { SigninComponent } from './components/auth/signin/signin.component';
     HeaderComponet,
     ShoppingBucketComponent,
     ShoppingEditComponent,
-    //HighlightDirective,
-    //UnlessDirective,
-    //DropdownDirective,
     SignupComponent,
     SigninComponent
   ],
@@ -31,7 +29,8 @@ import { SigninComponent } from './components/auth/signin/signin.component';
     FormsModule,
     HttpModule,
     RecipesModule, //Need to be before AppRoutingModule
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule // Exports DropdownDirective 
   ],
   providers: [],
   bootstrap: [AppComponent]
