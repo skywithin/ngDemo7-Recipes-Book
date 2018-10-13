@@ -1,18 +1,12 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { RecipesBucketComponent } from "./components/recipes-bucket/recipes-bucket.component";
-import { RecipeStartComponent } from "./components/recipes-bucket/recipe-start/recipe-start.component";
 import { ShoppingBucketComponent } from "./components/shopping-bucket/shopping-bucket.component";
-import { RecipeDetailComponent } from "./components/recipes-bucket/recipe-detail/recipe-detail.component";
-import { RecipeEditComponent } from "./components/recipes-bucket/recipe-edit/recipe-edit.component";
 import { SignupComponent } from "./components/auth/signup/signup.component";
 import { SigninComponent } from "./components/auth/signin/signin.component";
-import { AuthGuardService } from "./services/auth-guard.service";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-    
     { path: 'shopping-list', component: ShoppingBucketComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'signin', component: SigninComponent },
