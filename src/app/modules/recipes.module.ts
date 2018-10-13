@@ -20,9 +20,9 @@ import { SharedModule } from "./shared.module";
         RecipeItemComponent
     ],
     imports: [
+        RecipesRoutingModule,
         CommonModule, //important
         ReactiveFormsModule,
-        RecipesRoutingModule,
         SharedModule
     ]
 })
