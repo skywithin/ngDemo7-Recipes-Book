@@ -7,17 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './modules/shared.module';
 import { ShoppingListModule } from './modules/shopping-list.module';
 import { AuthModule } from './modules/auth.module';
+import { CoreModule } from './modules/core.module';
 
 import { AppComponent } from './app.component';
-import { HeaderComponet } from './components/header/header.component';
-import { HomeComponent } from './components/home/home.component';
-
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponet,
-    HomeComponent
+    AppComponent
   ],
   imports: [
     AppRoutingModule,
@@ -26,6 +22,7 @@ import { HomeComponent } from './components/home/home.component';
     //RecipesModule,
     ShoppingListModule,
     AuthModule,
+    CoreModule,
     SharedModule // Exports DropdownDirective 
   ],
   providers: [],

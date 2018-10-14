@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { HomeComponent } from "./components/home/home.component";
+import { HomeComponent } from "./components/core/home/home.component";
 import { ShoppingBucketComponent } from "./components/shopping-bucket/shopping-bucket.component";
 
 const appRoutes: Routes = [
